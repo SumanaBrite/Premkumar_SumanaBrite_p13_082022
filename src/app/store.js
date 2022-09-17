@@ -1,8 +1,18 @@
-import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+// import { combineReducers } from 'redux'
+import { configureStore } from '@reduxjs/toolkit'
 
-export const store = configureStore({
+import { composeWithDevTools } from 'redux-devtools-extension'
+// import thunk from 'redux-thunk'
+import { userReducer } from '../reducers/UserReducer'
+import { loginReducer } from '../reducers/LoginReducer'
+import { persistStore, persistReducer } from 'redux-persist'
+// import storage from 'redux-persist/lib/storage'
+
+const store = configureStore({
   reducer: {
-    counter: counterReducer,
-  },
-});
+    userLogin: loginReducer,
+    userProfile: userReducer,
+  }
+})
+// export const persistor = persistStore(store)
+export default store
