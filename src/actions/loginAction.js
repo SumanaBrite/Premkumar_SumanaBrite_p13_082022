@@ -6,7 +6,12 @@ import {
 import { userProfile } from './userProfileAction'
 import axios from 'axios'
 
-// Login action
+/**
+ * login component to display website's log in page
+ * @name login
+ * @param {string} email
+ * @param {string} password
+ */
 
 export const login = (email, password) => async (dispatch) => {
     try {

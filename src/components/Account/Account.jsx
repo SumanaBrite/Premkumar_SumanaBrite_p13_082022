@@ -1,5 +1,13 @@
 import './Account.css'
 
+/**
+ * 
+ * @param {string} title 
+ * @param {number} amount 
+ * @param {string} description 
+ * @returns {JSX} 
+ */
+
 export default function Account({ title, amount, description }) {
   return (
     <section className="account">

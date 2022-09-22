@@ -5,6 +5,12 @@ export const USER_PROFILE_UPDATE = 'USER_PROFILE_UPDATE'
 
 const INITIAL_STATE = { success: false, firstName: '', lastName: '' }
 
+/**
+ * 
+ * @param {object} state 
+ * @param {object} action 
+ * @returns {JSX}
+ */
 export const userReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case USER_PROFILE_SUCCESS:

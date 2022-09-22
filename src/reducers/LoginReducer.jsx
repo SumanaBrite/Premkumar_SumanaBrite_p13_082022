@@ -7,6 +7,13 @@ const INITIAL_STATE = {
   token: '',
 }
 
+/**
+ * 
+ * @param {object} state 
+ * @param {object} action 
+ * @returns {JSX}
+ */
+
 export const loginReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case USER_LOGIN_SUCCESS:

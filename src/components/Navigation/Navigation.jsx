@@ -5,6 +5,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { logout } from '../../actions/logoutAction'
 import React from 'react'
 
+/**
+ * @name Navigation
+ * @returns {JSX}
+ */
+
 export default function Navigation() {
   const dispatch = useDispatch()
   const { token } = useSelector((state) => state.userLogin)

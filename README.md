@@ -2,17 +2,6 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
 ## 1. Technologies
 
@@ -20,11 +9,24 @@ You may also see any lint errors in the console.
 -  [react-router-dom](https://reactrouter.com/web/guides/quick-start) v5.3.0 
 -  [Redux](https://redux.js.org/introduction/getting-started) v5.3.0 
 -  [react-redux](https://react-redux.js.org/introduction/getting-started) v7.2.5  
--  [redux/toolkit](https://redux-toolkit.js.org/introduction/getting-started) v1.6.2
--  [redux-thunk](https://redux.js.org/usage/writing-logic-thunks) v2.4.0
 -  [axios](https://www.npmjs.com/package/axios) v0.23.0 
--  [prop-types](https://www.npmjs.com/package/prop-types) v15.7.2  
--  [Styled-Components](https://styled-components.com/) v5.3.1  
-- Recommended IDE : [Visual Studio code](https://code.visualstudio.com/)
-   
 
+
+## 2. Install and launch back-end
+- [ ] Clone backend repository : https://github.com/OpenClassrooms-Student-Center/Project-10-Bank-API
+- [ ] `cd Project-10-Bank-API`
+- [ ] `npm install` to install dependencies
+- [ ] `npm run dev:server` to start local dev server (port 3001)  
+- [ ] `npm run populate-db` to populate database with two users
+
+## 3. Install and launch front-end
+- [ ] Clone repository :https://github.com/SumanaBrite/Premkumar_SumanaBrite_p13_082022
+- [ ] `cd Premkumar_SumanaBrite_p13_082022`
+- [ ] `npm install` to install dependencies
+- [ ] `npm start` to launch application
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+The page will reload when you make changes.\
+You may also see any lint errors in the console.

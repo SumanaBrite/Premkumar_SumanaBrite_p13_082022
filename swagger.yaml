@@ -148,11 +148,6 @@ paths:
           description: User's account ID
           type: integer
           required: true
-        - in: body
-          name: transactions
-          description: transaction in detail
-          schema:
-           $ref: '#/definitions/Transactions'
       responses:
         '200':
           description: Transactions retrieved successully
@@ -194,7 +189,35 @@ paths:
           description: Invalid Fields
        '500':
           description: Internal Server Error
-  /user/accounts/{accountId}/transactions/{transactionsId}/category:
+  /user/transactions/{transactionsId}/category:
+    get:
+      tags: Transaction Module
+      summary: Category list API
+      description: Get the list of all categories
+      parameters: 
+      - in: header
+          name: Authorization
+          description: Attach Bearer JWT token
+          type: string
+          required: true
+      - in: path
+         name: transactionId
+         description: get transactionId in integer format
+         type: string
+         required: true   
+      - in: body
+        name: categories
+        description: get category list
+        type: string
+        required: true  
+      responses:
+       '200':
+          description: Retrieved Category list successfully
+       '400':
+          description: Invalid Fields
+       '500':
+          description: Internal Server Error     
+  /user/transactions/{transactionsId}/category/categoryId:
     put:
       tags:
       - User Transactions
@@ -205,11 +228,6 @@ paths:
         name: Authorization
         description: Attach Bearer JWT token
         type: string
-        required: true
-      - in: path
-        name: accountId
-        description: User's account ID
-        type: integer
         required: true
       - in: path
         name: transactionsId
@@ -229,6 +247,34 @@ paths:
           description: invalid id
         '500':
           description: Internal Server Error          
+  /user/transactions/{transactionsId}/notes:
+    get:
+      tags: Transaction Module
+      summary: Notes list API
+      description: Get the list of all notes
+      parameters: 
+      - in: header
+          name: Authorization
+          description: Attach Bearer JWT token
+          type: string
+          required: true
+      - in: path
+         name: transactionId
+         description: get transactionId in integer format
+         type: string
+         required: true   
+      - in: body
+        name: notes
+        description: get notes list
+        type: string
+        required: true  
+      responses:
+       '200':
+          description: Retrieved Notes list successfully
+       '400':
+          description: Invalid Fields
+       '500':
+          description: Internal Server Error      
   /user/accounts/{accountId}/transactions/{transactionsId}/notes:
     put:
       tags:

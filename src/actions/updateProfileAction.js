@@ -3,7 +3,13 @@ import {
     USER_PROFILE_UPDATE,
 } from '../reducers/UserReducer'
 import axios from 'axios'
-// User's update profile
+/**
+ * @name updateProfile
+ * @param {string} token 
+ * @param {string} newFirstName 
+ * @param {string} newLastName 
+ * @returns {JSON} 
+ */
 
 export const updateProfile =
     (token, newFirstName, newLastName) => async (dispatch) => {

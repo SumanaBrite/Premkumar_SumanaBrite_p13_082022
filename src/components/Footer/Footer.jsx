@@ -1,3 +1,9 @@
+import './Footer.css'
+/**
+ * @name Footer
+ * @returns {JSX}
+ */
+
 export default function Footer() {
     return (
         <>

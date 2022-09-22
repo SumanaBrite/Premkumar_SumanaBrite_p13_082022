@@ -4,7 +4,10 @@ import {
 } from '../reducers/UserReducer'
 import axios from 'axios'
 
-// User's profile action
+/**
+ * @name userProfile
+ * @param {string} token
+ */
 
 export const userProfile = (token) => async (dispatch) => {
     try {
