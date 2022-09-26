@@ -3,7 +3,12 @@ export const USER_PROFILE_FAIL = 'USER_PROFILE_FAIL'
 export const USER_PROFILE_RESET = 'USER_PROFILE_RESET'
 export const USER_PROFILE_UPDATE = 'USER_PROFILE_UPDATE'
 
-const INITIAL_STATE = { success: false, firstName: '', lastName: '' }
+const INITIAL_STATE =
+{
+  success: false,
+  firstName: '',
+  lastName: ''
+}
 
 /**
  * 

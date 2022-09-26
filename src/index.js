@@ -1,23 +1,18 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
+import store from '../src/store/store'
 // import { PersistGate } from 'redux-persist/integration/react'
-import store from '../src/app/store'
 import App from './App'
 import './index.css';
-<link
-  rel="stylesheet"
-  href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-/>
-
 
 const container = document.getElementById('root');
-const root = createRoot(container); // createRoot(container!) if you use TypeScript
+const root = createRoot(container);
 root.render(
   <Provider store={store}>
-    {/* <PersistGate loading={null} persistor={persistor}> */}
+    {/* <PersistGate persistor={persistor}> */}
     <App />
     {/* </PersistGate> */}
   </Provider>
-
 );
+

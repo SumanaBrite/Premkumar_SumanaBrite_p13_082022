@@ -1,18 +1,19 @@
-import { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 import { login } from '../../actions/loginAction'
 import { useNavigate } from 'react-router'
+
+import { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+
 import './SignInForm.css'
 
 export default function SignInForm() {
-  const dispatch = useDispatch()
-  let navigate = useNavigate()
-
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const { error } = useSelector((state) => state.userLogin)
   const { token } = useSelector((state) => state.userLogin)
+
+  const dispatch = useDispatch()
+  let navigate = useNavigate()
 
   const submitHandler = (e) => {
     e.preventDefault()
@@ -55,12 +56,7 @@ export default function SignInForm() {
         <button className="sign-in-button" type="submit" name="Login">
           Sign In
         </button>
-        {error && (
-          <div>
-            <br />
-            {error}
-          </div>
-        )}
+
       </form>
     </section>
   )
