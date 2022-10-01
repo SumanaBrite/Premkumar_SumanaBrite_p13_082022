@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { configureStore, applyMiddleware } from '@reduxjs/toolkit'
+import { configureStore, applyMiddleware, getDefaultMiddleware } from '@reduxjs/toolkit'
 
 import { composeWithDevTools } from 'redux-devtools-extension'
 import ReduxThunk from 'redux-thunk'
@@ -27,11 +27,12 @@ const persistedReducer = persistCombineReducers(persistConfig, rootReducer)
 // )
 const store = configureStore({
   reducer: persistedReducer,
-  applyMiddleware(ReduxThunk: any)
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
+
 })
 export const persistor = persistStore(store)
 export default store
-----------------------------------------------------------------------
+
 
 
 
