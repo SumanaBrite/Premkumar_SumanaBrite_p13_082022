@@ -82,6 +82,25 @@ paths:
           description: Invalid Fields
         '500':
           description: Internal Server Error
+    get:
+      tags:
+        - User Module
+      summary: User Accounts API
+      description: get API for user profile
+      parameters:
+        - in: body
+          name: profile
+          description: User's account ID
+          required: true
+          schema:
+            $ref: '#/definitions/Accounts'
+      responses:
+        '200':
+          description: Profile retrieved successully
+        '400':
+          description: Id must be in Integer
+        '500':
+          description: Internal Server Error      
     put:
       security:
         - Bearer: []
@@ -112,29 +131,10 @@ paths:
           description: Invalid Fields
         '500':
           description: Internal Server Error
-    get:
-      tags:
-        - Accounts Module
-      summary: User Accounts API
-      description: get API for all accounts
-      parameters:
-        - in: body
-          name: profile
-          description: User's account ID
-          required: true
-          schema:
-            $ref: '#/definitions/Accounts'
-      responses:
-        '200':
-          description: Transaction retrieved successully
-        '400':
-          description: Id must be in Integer
-        '500':
-          description: Internal Server Error
   /user/profile/{accountId}:
     get:
       tags:
-        - Transaction Module
+        -  Transaction Module
       summary: User Account's Transaction API
       description: get all transaction of the selected Account
       parameters:
@@ -191,7 +191,7 @@ paths:
           description: Invalid Fields
        '500':
           description: Internal Server Error
-  /user/transactions/{transactionId}/category:
+  /user/transactions/categories:
     get:
       tags: 
        - Transaction Module
@@ -203,11 +203,6 @@ paths:
         description: Attach Bearer JWT token
         type: string
         required: true
-      - in: path
-        name: transactionId
-        description: get transactionId in integer format
-        type: string
-        required: true   
       - in: body
         name: categories
         description: get category list
@@ -221,10 +216,44 @@ paths:
           description: Invalid Fields
        '500':
           description: Internal Server Error     
-  /user/transactions/{transactionsId}/category/categoryId:
+  /user/transactions/{transactionId}/{categoryId}:
+    get:
+      tags: 
+       - Transaction Module
+      summary: Category list API
+      description: Get the list of all categories
+      parameters: 
+      - in: header
+        name: Authorization
+        description: Attach Bearer JWT token
+        type: string
+        required: true
+      - in: path
+        name: transactionId
+        description: get transactionId in correct format
+        type: string
+        required: true 
+      - in: path
+        name: categoryId
+        description: get categoryId in correct format
+        type: string
+        required: true     
+      - in: body
+        name: category
+        description: get category
+        required: true  
+        schema: 
+         $ref: '#/definitions/Categories'
+      responses:
+       '200':
+          description: Retrieved Category successfully
+       '400':
+          description: Invalid Fields
+       '500':
+          description: Internal Server Error   
     put:
       tags:
-      - Transaction Category
+      - Transaction Module
       summary: Update transaction's category
       description: API for updating a transaction's category
       parameters:
@@ -234,10 +263,15 @@ paths:
         type: string
         required: true
       - in: path
-        name: transactionsId
+        name: transactionId
         description: Transaction's ID
         required: true
         type: integer
+      - in: path
+        name: categoryId
+        description: get categoryId in correct format
+        type: string
+        required: true    
       - in: body
         name: body
         required: true
@@ -246,11 +280,11 @@ paths:
             $ref: '#/definitions/UpdateCategory'
       responses:
         '200':
-          description: Transaction updated successully
+          description: Transaction category updated successully
         '400':
           description: invalid fields
         '500':
-          description: Internal Server Error          
+          description: Internal Server Error                  
   /user/transactions/{transactionId}/notes:
     get:
       tags:
@@ -284,7 +318,7 @@ paths:
   /user/transactions/{transactionId}/notes/:
     put:
       tags:
-      - Transaction Notes
+      - Transaction Module
       summary: Update transaction's notes
       description: API for updating transaction's notes
       parameters:
@@ -370,12 +404,12 @@ definitions:
   Accounts:
     type: object
     properties:
-     accountId:
-       type: string
-     accountType:
+     accountName:
        type: string
      balance:
        type: integer
+     description:
+       type: string
   Transactions:
     type: object
     properties:
@@ -432,5 +466,3 @@ definitions:
    properties:
     notes: 
      type: string
-
-     
