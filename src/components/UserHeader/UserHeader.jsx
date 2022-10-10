@@ -5,45 +5,45 @@ import { updateProfile } from '../../actions/updateProfileAction'
 
 
 export default function UserHeader() {
-  const dispatch = useDispatch()
-
-  const { firstName } = useSelector((state) => state.userProfile)
-  const { lastName } = useSelector((state) => state.userProfile)
   const { token } = useSelector((state) => state.userLogin)
   const { success } = useSelector((state) => state.userLogin)
+  const { firstName } = useSelector((state) => state.userProfile)
+  const { lastName } = useSelector((state) => state.userProfile)
+
+  const dispatch = useDispatch()
 
   const [newFirstname, setNewFirstname] = useState()
   const [newLastname, setNewLastname] = useState()
-  const [editButton, setEditButton] = useState('')
+  const [editName, setEditName] = useState('')
 
-  const editNameButton = (e) => {
+  const editButton = (e) => {
     e.preventDefault()
-    setEditButton((current) => !current)
+    setEditName((current) => !current)
   }
-  const submitHandler = (e) => {
+  const submitName = (e) => {
     e.preventDefault()
     dispatch(updateProfile(token, newFirstname, newLastname))
     if ({ success }) {
-      setEditButton((current) => !current)
+      setEditName((current) => !current)
     }
   }
   return (
     <>
-      {!editButton ? (
+      {!editName ? (
         <div className="header">
           <h1>
             Welcome back
             <br />
             {firstName + ' ' + lastName} !
           </h1>
-          <button onClick={editNameButton} className="edit-button">
+          <button onClick={editButton} className="edit-button">
             Edit Name
           </button>
         </div>
       ) : (
         <div className="header">
           <h1>Welcome back</h1>
-          <form className="editNameContent" onSubmit={submitHandler}>
+          <form className="editNameContent" onSubmit={submitName}>
             <div className="editNameInputs">
               <input
                 type="text"
@@ -58,11 +58,11 @@ export default function UserHeader() {
                 required
               />
             </div>
-            <div className="editNameButtons">
+            <div className="editButtons">
               <button className="save-button" type="submit">
                 Save
               </button>
-              <button className="cancel-button" onClick={editNameButton}>
+              <button className="cancel-button" onClick={editButton}>
                 Cancel
               </button>
             </div>

@@ -15,7 +15,7 @@ export default function Navigation() {
   const { token } = useSelector((state) => state.userLogin)
   const { firstName } = useSelector((state) => state.userProfile)
 
-  const logoutHandler = () => {
+  const signOut = () => {
     dispatch(logout())
   }
   return (
@@ -36,7 +36,7 @@ export default function Navigation() {
                 <i className="fa fa-user-circle"></i>
                 {firstName}
               </Link>
-              <Link onClick={logoutHandler} className="main-nav-item" to="/">
+              <Link onClick={signOut} className="main-nav-item" to="/">
                 <i className="fa fa-sign-out"></i>
                 Sign Out
               </Link>

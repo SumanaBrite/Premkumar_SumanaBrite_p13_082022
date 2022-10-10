@@ -7,18 +7,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import './SignInForm.css'
 
 export default function SignInForm() {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
 
-  const { token } = useSelector((state) => state.userLogin)
-
-  const dispatch = useDispatch()
+  let dispatch = useDispatch()
   let navigate = useNavigate()
 
-  const submitHandler = (e) => {
-    e.preventDefault()
-    dispatch(login(email, password))
-  }
+  const { token } = useSelector((state) => state.userLogin)
 
   useEffect(() => {
     if (token) {
@@ -26,11 +19,20 @@ export default function SignInForm() {
     }
   }, [token, navigate])
 
+
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  const onSubmit = (e) => {
+    e.preventDefault()
+    dispatch(login(email, password))
+  }
+
   return (
     <section className="sign-in-content">
       <i className="fa fa-user-circle sign-in-icon"></i>
       <h1>Sign In</h1>
-      <form onSubmit={submitHandler}>
+      <form onSubmit={onSubmit}>
         <div className="input-wrapper">
           <label htmlFor="username">Username</label>
           <input

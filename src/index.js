@@ -10,7 +10,7 @@ const container = document.getElementById('root');
 const root = createRoot(container);
 root.render(
   <Provider store={store}>
-    <PersistGate persistor={persistor}>
+    <PersistGate loading={null} persistor={persistor}>
       <App />
     </PersistGate>
   </Provider>

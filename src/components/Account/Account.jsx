@@ -1,3 +1,4 @@
+// import PropTypes from "prop-types"
 import './Account.css'
 
 /**
@@ -22,3 +23,9 @@ export default function Account({ title, amount, description }) {
     </section>
   )
 }
+
+// Account.propTypes = {
+//   title: PropTypes.string.isRequired,
+//   amount: PropTypes.number.isRequired,
+//   description: PropTypes.string.isRequired
+// }
